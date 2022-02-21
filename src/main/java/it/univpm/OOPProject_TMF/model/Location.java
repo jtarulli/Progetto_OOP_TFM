@@ -1,5 +1,5 @@
 package it.univpm.OOPProject_TMF.model;
-
+//Matteo prova commit
 public class Location {
 	private String name;
 	private PlaceType placeType;
