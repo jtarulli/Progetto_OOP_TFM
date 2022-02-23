@@ -120,7 +120,7 @@ public class Connection {
 	
 	
 	/**
-	* restituisce le locations del JSON trendsAvailable entro una certa distanza in km da un paese, entrambi dati in input
+	* Metodo che restituisce le locations del JSON trendsAvailable entro una certa distanza in km da un paese, entrambi dati in input
 	* @param placeName
 	* @param distance
 	* @author Jacopo Tarulli

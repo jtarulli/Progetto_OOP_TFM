@@ -28,6 +28,7 @@ public class Coordinates {
 	@JsonProperty("latitude")
 	public double getLat() {
 		return lat;
+	}
 	
 	@JsonProperty("latitude")
 	public void setLat(double lat) {

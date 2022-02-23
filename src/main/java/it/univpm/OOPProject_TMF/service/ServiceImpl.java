@@ -34,7 +34,7 @@ public class ServiceImpl implements Service {
 	}
 	@Override
 	public List<LocationWithCoordinates> DataList(String placeName, double distance) throws CustomedException {
-		return db.getTrendsClosestWithDistance(placeName, distance);
+		return db.getClosestLocation(placeName, distance);
 	}
 	@Override
 	public List<Location> DataListCC(String countryCode) throws CustomedException {

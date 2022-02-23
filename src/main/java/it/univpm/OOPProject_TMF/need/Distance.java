@@ -1,6 +1,6 @@
 package it.univpm.OOPProject_TMF.need;
 
-/*
+/**
  * La funzione principale della classe Distance è quella di calcolare 
  * la distanza tra due città attraverso l'utilizzo delle loro coordinate
  * 
@@ -10,14 +10,14 @@ public class Distance {
 	
 private double latA, lonA, latB, lonB;
     
-	/*
+	/**
 	 * Costruttore della classe
 	 */
     public Distance() {
         super();
     }
 
-    /*
+    /**
      * Costruttore della classe con i parametri delle due città A e B
      * 
      * @param latA
@@ -33,7 +33,7 @@ private double latA, lonA, latB, lonB;
         this.lonB = lonB;
     }
 
-    /*
+    /**
      * Attraverso il metodo distanza è possibile calcolare in Km quanto distano due città inserite
      * 
      * @param a0 (latitudine di A)
@@ -68,7 +68,7 @@ private double latA, lonA, latB, lonB;
         return (d);
     }
     
-    /*
+    /**
      * Il metodo stringToDouble restituisce un double a partire da un parametro stringa
      * 
      * @param a

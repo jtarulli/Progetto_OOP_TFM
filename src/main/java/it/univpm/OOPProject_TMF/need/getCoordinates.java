@@ -9,7 +9,6 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.univpm.OOP2020.TwitterTrends.exception.BadDataInput;
 import it.univpm.OOPProject_TMF.exception.CustomedException;
 import it.univpm.OOPProject_TMF.model.Coordinates;
 import org.json.simple.JSONArray;
@@ -27,17 +26,11 @@ public class getCoordinates {
 
     private String sourceFile;
     private List<Coordinates> listCoordinate;
-    
-    /*
-     * Costruttore della classe con parametro file
-     * 
-     * @param file
-     */
+
     public getCoordinates(String file) {
         this.sourceFile = file;
     }
     
-    //Costruttore della classe
     public getCoordinates() {
     	
     }
@@ -68,8 +61,7 @@ public class getCoordinates {
         }
     }
     
-	/**
-	 * This method return an array with latitude and longitude of placeName 
+	/**a
 	 * Il metodo getLatLong, mediante il parametro placeName ritorna 
 	 * un array con latitudine e longitudine della città interessata
 	 * 

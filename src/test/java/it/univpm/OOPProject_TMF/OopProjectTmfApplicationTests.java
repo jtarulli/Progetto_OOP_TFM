@@ -8,7 +8,7 @@ import it.univpm.OOPProject_TMF.connection.Connection;
 import it.univpm.OOPProject_TMF.exception.CustomedException;
 
 /**
- * Questa classe presenta la funzione di controllo della correttezza dei dati mediante test
+ * Questa classe presenta la funzione di controllo della correttezza dei parametri mediante test
  * 
  * @author Matteo Forti
  */
@@ -16,36 +16,36 @@ import it.univpm.OOPProject_TMF.exception.CustomedException;
 class OopProjectTmfApplicationTests {
 
 	private Connection conn;
-    private String countryCode;
-    private double distance;
-   
-    @BeforeEach
-    void setUp() {
-    	conn = new Connection();
-    }
-    
-    @SuppressWarnings("unlikely-arg-type")
+	private String countryCode;
+	private double distance;
+
+	@BeforeEach
+	void setUp() {
+		conn = new Connection();
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	void TestWrongDistance() throws CustomedException {
 		distance = -2;
-		equals(conn.getTrendsClosestWithDistance("Montappone", distance));
+		equals(conn.getClosestLocation("Montappone", distance));
 	}
-   
-    @SuppressWarnings("unlikely-arg-type")
+
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
-   	void TestOkCC() throws CustomedException {
-    	countryCode = "IT";
+	void TestOkCC() throws CustomedException {
+		countryCode = "IT";
 		equals(conn.getTrendsCC(countryCode));
-   	}
-    
-    @SuppressWarnings("unlikely-arg-type")
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	void TestWrongLengthCC() throws CustomedException {
 		countryCode = "ITA";
 		equals(conn.getTrendsCC(countryCode));
 	}
-    
-    @SuppressWarnings("unlikely-arg-type")
+
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	void TestNotAvailableCC() throws CustomedException {
 		countryCode = "MP";
