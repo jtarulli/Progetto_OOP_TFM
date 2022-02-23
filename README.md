@@ -17,7 +17,7 @@ Progetto Programmazione ad Oggetti 2021/2022
 * [Eccezioni](#eccez)
 * [Test](#test)
 * [Documentazione](#doc)
-* [Autori](#autor)
+* [Autori](#author)
 
 <a name="intro"></a>
 ## Introduzione :mega:
@@ -169,6 +169,7 @@ Sono stati effettuati test usando il framework JUnit sul corretto inserimento de
 ## Documentazione :abc:
 È stata usata la documentazione Javadoc.
  
+ <a name="author"></a>
  ## Autori e commenti :busts_in_silhouette:
 
 Progetto realizzato da
