@@ -24,24 +24,24 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
-* Connection è la classe che contiene le implementazioni delle chiamate effettive alle varie API e i calcoli necessari a ottenere le statistiche, usando i metodi presenti nel Need
-* @see it.univpm.OOPProject_TMF.need
-* @author Jacopo Tarulli
-* @author Matteo Forti 
-* @author Federico Mennecozzi
-*/
+ * Connection è la classe che contiene le implementazioni delle chiamate effettive alle varie API e i calcoli necessari a ottenere le statistiche, usando i metodi presenti nel Need
+ * @see it.univpm.OOPProject_TMF.need
+ * @author Jacopo Tarulli
+ * @author Matteo Forti 
+ * @author Federico Mennecozzi
+ */
 
 public class Connection {
-	
+
 	private static List<Location> trendsAvailable;
 	private static List<Location> trendsClosest;
 	private String url;
 	private static List<Metadata> metadata;
-	
+
 	/**
-	* Metodo per leggere e restituire il JSON della chiamata all'API di Twitter GetTrendsAvailable
-	* @author Jacopo Tarulli
-	*/
+	 * Metodo per leggere e restituire il JSON della chiamata all'API di Twitter GetTrendsAvailable
+	 * @author Jacopo Tarulli
+	 */
 	public List<Location> getTrendsAvailable() {
 		url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/trends/available.json";
 		try {
@@ -55,12 +55,12 @@ public class Connection {
 		}
 		return trendsAvailable;
 	}
-	
+
 	/**
-	* Metodo per leggere e restituire il JSON della chiamata all'API di Twitter GetTrendsClosest, usando come input le location
-	* presenti nel file location.txt
-	* @author Jacopo Tarulli
-	*/
+	 * Metodo per leggere e restituire il JSON della chiamata all'API di Twitter GetTrendsClosest, usando come input le location
+	 * presenti nel file location.txt
+	 * @author Jacopo Tarulli
+	 */
 	public List<Location> getTrendsClosest() {
 		String urlResponse;
 		JSONObject obj;
@@ -89,13 +89,13 @@ public class Connection {
 
 
 	}
-	
-	
+
+
 	/**
-	* Metodo che usando GetTrendsClosest calcola la distanza tra una città data in input e quelle del file location.txt
-	* @param placeName
-	* @author Matteo Forti
-	*/
+	 * Metodo che usando GetTrendsClosest calcola la distanza tra una città data in input e quelle del file location.txt
+	 * @param placeName
+	 * @author Matteo Forti
+	 */
 	public List<LocationWithCoordinates> getLocation(String placeName) throws CustomedException{
 
 		List<LocationWithCoordinates> list = new ArrayList<LocationWithCoordinates>();
@@ -117,19 +117,21 @@ public class Connection {
 		}
 		return list;
 	}
-	
-	
+
+
 	/**
-	* Metodo che restituisce le locations del JSON trendsAvailable entro una certa distanza in km da un paese, entrambi dati in input
-	* @param placeName
-	* @param distance
-	* @author Jacopo Tarulli
-	* @author Matteo Forti
-	*/
+	 * Metodo che restituisce le locations del JSON trendsAvailable entro una certa distanza in km da un paese,
+	 * entrambi dati in input. A causa della stessa struttura, può richiedere un paio di minuti per restituire
+	 * i dati 
+	 * @param placeName
+	 * @param distance
+	 * @author Jacopo Tarulli
+	 * @author Matteo Forti
+	 */
 	public List<LocationWithCoordinates> getClosestLocation(String placeName, double distance) throws CustomedException {
-		
+
 		if (distance<0 ) throw new CustomedException ("La distanza non può essere negativa");
-		
+
 		List<LocationWithCoordinates> list = new ArrayList<LocationWithCoordinates>();
 		getTrendsAvailable();
 		String[] placeCoord = new getCoordinates().getLatLong(placeName); // place punto di riferimento
@@ -139,26 +141,25 @@ public class Connection {
 		for (Location loc : trendsAvailable) {
 			check.lowerCase(loc);
 			if (loc.getPlaceType().getPlaceTypeName().equals("Town")) {
-				System.out.println(loc.getName());
-			tmp = new getCoordinates().getLatLong(loc.getName() + ", " + loc.getCountryCode()); //
-			LocationWithCoordinates l = new LocationWithCoordinates(loc);
-			l.getPlace().setLat(Double.parseDouble(tmp[0]));
-			l.getPlace().setLon(Double.parseDouble(tmp[1]));
-			l.setDistance(d.distanza(placeCoord[0], placeCoord[1], tmp[0], tmp[1]));
-			if(l.getDistance()< distance) list.add(l);
+				tmp = new getCoordinates().getLatLong(loc.getName() + ", " + loc.getCountryCode());
+				LocationWithCoordinates l = new LocationWithCoordinates(loc);
+				l.getPlace().setLat(Double.parseDouble(tmp[0]));
+				l.getPlace().setLon(Double.parseDouble(tmp[1]));
+				l.setDistance(d.distanza(placeCoord[0], placeCoord[1], tmp[0], tmp[1]));
+				if(l.getDistance()< distance) list.add(l);
 			}
 		}
-		
+
 		Collections.sort(list, new Comparator<LocationWithCoordinates>() {
-		    public int compare(LocationWithCoordinates l1, LocationWithCoordinates l2) {
-		        return l1.getDistance() < l2.getDistance() ? -1 : (l1.getDistance() > l2.getDistance()) ? 1 : 0;
-		    }
+			public int compare(LocationWithCoordinates l1, LocationWithCoordinates l2) {
+				return l1.getDistance() < l2.getDistance() ? -1 : (l1.getDistance() > l2.getDistance()) ? 1 : 0;
+			}
 		});
 
 		return list;
 
 	}
-	
+
 	/**
 	 * Il metodo getTrendsCC fornisce una lista con le caratteristiche della location corrispondente al countryCode inserito in input
 	 * 
@@ -184,13 +185,13 @@ public class Connection {
 				}
 			}
 		}
-		if(list.isEmpty()) throw new CustomedException("COUNTRYCODE NON PRESENTE");
+		if(list.isEmpty()) throw new CustomedException("CountryCode non presente o non esistente");
 		Collections.sort(list, new Comparator<Location>() {
-		    public int compare(Location l1, Location l2) {
-		        return l1.getName().compareToIgnoreCase(l2.getName()) ;
-		    }
+			public int compare(Location l1, Location l2) {
+				return l1.getName().compareToIgnoreCase(l2.getName()) ;
+			}
 		});
-	return list;
+		return list;
 	}
 
 	/**
@@ -213,7 +214,7 @@ public class Connection {
 
 		return metadata;
 	}
-	
+
 	/**
 	 * Il metodo getStats restituisce una classifica dei paesi con più location per trend
 	 * 
@@ -252,7 +253,7 @@ public class Connection {
 
 			var.setTown(appoggio.split(","));
 		}
-		
+
 		Collections.sort(StatsList, new Comparator<Stats>() {
 
 			public int compare(Stats o1, Stats o2) {
@@ -264,5 +265,5 @@ public class Connection {
 		return StatsList;
 
 	}
-	
+
 }

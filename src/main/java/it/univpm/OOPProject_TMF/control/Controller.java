@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 	@Autowired
 	private Service data = new ServiceImpl();
-	
+
 	/**
 	 * La rotta /Metadata restituisce la lista dei metadati del JSON trendsAvailable
 	 * 
@@ -49,9 +49,9 @@ public class Controller {
 	@GetMapping("/Locations")
 	public ResponseEntity<Object> getLocation(@RequestParam(name = "name", defaultValue = "Montappone") String placeName) throws CustomedException{
 		return new ResponseEntity<>(data.DataList(placeName),HttpStatus.OK); 
-	
+
 	}
-	
+
 	/**
 	 * La rotta /ClosestLocations restituisce le locations del JSON trendsAvailable entro una certa distanza 
 	 * 
@@ -63,10 +63,10 @@ public class Controller {
 	 */
 	@GetMapping("/ClosestLocations")
 	public ResponseEntity<Object> getClosestLocations(@RequestParam(name = "name", defaultValue = "Montappone") String placeName, 
-			                              @RequestParam(name = "distance") double distance) throws CustomedException {
+			@RequestParam(name = "distance") double distance) throws CustomedException {
 		return new ResponseEntity<>(data.DataList(placeName, distance),HttpStatus.OK); 
 	}
-	
+
 	/**
 	 * La rotta /CountryCode restituisce le locations del JSON trendsAvailable della nazione specificata dal countryCode
 	 * 
@@ -79,7 +79,7 @@ public class Controller {
 	public ResponseEntity<Object> getCC(@RequestParam(name = "cc", defaultValue = "IT") String countryCode) throws CustomedException {
 		return new ResponseEntity<>(data.DataListCC(countryCode),HttpStatus.OK); 
 	}
-	
+
 	/**
 	 * La rotta /TrendsAvailable restituisce il JSON trendsAvailable con tutte le location registrate
 	 * 
@@ -91,7 +91,7 @@ public class Controller {
 
 		return new ResponseEntity<>(data.TrendsAvailable(),HttpStatus.OK); 
 	}
-	
+
 	/**
 	 * La rotta /Stats restituisce la classifica dei paesi con più locations per trend.
 	 * 

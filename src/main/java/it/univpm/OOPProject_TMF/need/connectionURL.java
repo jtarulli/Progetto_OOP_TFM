@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author Matteo Forti
  */
 public class connectionURL {
-	
+
 	private String url;
 
 	/**
@@ -23,7 +23,7 @@ public class connectionURL {
 		super();
 		this.url = url;
 	}
-	
+
 	/**
 	 * Il metodo getJSON genera la connessione con l'url
 	 * 
@@ -41,5 +41,5 @@ public class connectionURL {
 		}
 		return jSONString;
 	}
-	
+
 }

@@ -17,7 +17,7 @@ import java.util.List;
 
 @org.springframework.stereotype.Service
 public interface Service {
-	
+
 	public abstract List<Metadata> MetadataList();
 	public abstract List<LocationWithCoordinates> DataList(String placeName)throws CustomedException;
 	public abstract List<LocationWithCoordinates> DataList(String placeName, double distance) throws CustomedException;

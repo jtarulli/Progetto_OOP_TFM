@@ -16,7 +16,7 @@ import java.util.List;
  */
 @org.springframework.stereotype.Service
 public class ServiceImpl implements Service {
-	
+
 	private Connection db = new Connection();
 	@Override
 	public List<Metadata> MetadataList() {

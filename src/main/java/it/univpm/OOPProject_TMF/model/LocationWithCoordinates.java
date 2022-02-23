@@ -8,12 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Federico Mennecozzi
  */
 public class LocationWithCoordinates extends Location {
-	
+
 	@JsonProperty("Coordinates")
 	private Coordinates place;
 	@JsonProperty("Distance[Km]")
 	private double distance;
-	
+
 	public LocationWithCoordinates(Location l) {
 		super(l);
 		place = new Coordinates();

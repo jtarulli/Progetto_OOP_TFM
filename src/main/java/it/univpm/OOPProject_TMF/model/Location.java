@@ -6,7 +6,7 @@ package it.univpm.OOPProject_TMF.model;
  * @author Federico Mennecozzi
  */
 public class Location {
-	
+
 	private String name;
 	private PlaceType placeType;
 	private String url;
@@ -14,7 +14,7 @@ public class Location {
 	private String country;
 	private Integer woeid;
 	private String countryCode;
-	
+
 	public Location() {
 		super ();
 	}
@@ -69,5 +69,5 @@ public class Location {
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
 	}
-	
+
 }

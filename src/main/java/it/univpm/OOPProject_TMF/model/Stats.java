@@ -7,28 +7,28 @@ package it.univpm.OOPProject_TMF.model;
  */
 public class Stats extends Location  {
 
-    private int count;
-    private String[] town;
-    
-    public Stats(Location loc,int c) {
-        super(loc);
-        this.count=c;
-    }
-    
-    public void setCount(int i) {
-        this.count=i;
-    }
-    
-    public int getCount() {
-        return count;
-    }
-    
-    public String[] getTown() {
-        return town;
-    }
-    
-    public void setTown(String[] town) {
-        this.town = town;
-    }
-    
+	private int count;
+	private String[] town;
+
+	public Stats(Location loc,int c) {
+		super(loc);
+		this.count=c;
+	}
+
+	public void setCount(int i) {
+		this.count=i;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public String[] getTown() {
+		return town;
+	}
+
+	public void setTown(String[] town) {
+		this.town = town;
+	}
+
 }

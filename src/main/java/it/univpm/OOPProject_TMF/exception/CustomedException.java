@@ -6,7 +6,7 @@ package it.univpm.OOPProject_TMF.exception;
  * @author Federico Mennecozzi
  */
 public class CustomedException extends  Exception {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public CustomedException(String message) {

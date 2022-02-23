@@ -9,15 +9,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Federico Mennecozzi
  */
 public class Coordinates {
-	
+
 	@JsonProperty("latitude")
 	private double lat;
-	
+
 	@JsonProperty("longitude")
 	private double lon;
 	@JsonIgnore
 	private String placeName;
-	
+
 	public Coordinates() {
 
 	}
@@ -29,7 +29,7 @@ public class Coordinates {
 	public double getLat() {
 		return lat;
 	}
-	
+
 	@JsonProperty("latitude")
 	public void setLat(double lat) {
 		this.lat = lat;
@@ -50,5 +50,5 @@ public class Coordinates {
 	public void setPlaceName(String placeName) {
 		this.placeName = placeName;
 	}
-	
+
 }
