@@ -43,11 +43,12 @@ public class Controller {
 	 * presenti nel JSON trendsAvailable. Usa la chiamata API getTrendsClosest
 	 * 
 	 * @author Jacopo Tarulli
+	 * @throws CustomedException 
 	 * @see it.univpm.OOPProject_TMF.service
 	 */
-	@GetMapping("/Data")
-	public ResponseEntity<Object> getData(){
-		return new ResponseEntity<>(data.DataList(),HttpStatus.OK); 
+	@GetMapping("/Locations")
+	public ResponseEntity<Object> getLocation(@RequestParam(name = "name", defaultValue = "Montappone") String placeName) throws CustomedException{
+		return new ResponseEntity<>(data.DataList(placeName),HttpStatus.OK); 
 	
 	}
 	
@@ -57,10 +58,11 @@ public class Controller {
 	 * @author Jacopo Tarulli
 	 * @param placeName (nome della location di riferimento)
 	 * @param distance (distanza massima entro la quale cercare le locations)
+	 * @throws CustomedException 
 	 * @see it.univpm.OOPProject_TMF.service
 	 */
 	@GetMapping("/ClosestLocations")
-	public ResponseEntity<Object> getData(@RequestParam(name = "name", defaultValue = "Montappone") String placeName, 
+	public ResponseEntity<Object> getClosestLocations(@RequestParam(name = "name", defaultValue = "Montappone") String placeName, 
 			                              @RequestParam(name = "distance") double distance) throws CustomedException {
 		return new ResponseEntity<>(data.DataList(placeName, distance),HttpStatus.OK); 
 	}
@@ -70,6 +72,7 @@ public class Controller {
 	 * 
 	 * @author Jacopo Tarulli
 	 * @param cc (countryCode)
+	 * @throws CustomedException 
 	 * @see it.univpm.OOPProject_TMF.service
 	 */
 	@GetMapping("/CountryCode")
@@ -78,7 +81,7 @@ public class Controller {
 	}
 	
 	/**
-	 * La rotta /TrendsAvailable restituisce tutto il JSON trendsAvailable con tutte le location registrate
+	 * La rotta /TrendsAvailable restituisce il JSON trendsAvailable con tutte le location registrate
 	 * 
 	 * @author Jacopo Tarulli
 	 * @see it.univpm.OOPProject_TMF.service

@@ -24,9 +24,8 @@ public class ServiceImpl implements Service {
 		return db.getMetadata();
 	}
 	@Override
-	public List<Location> DataList() {
-
-		return db.getTrendsClosest();
+	public List<LocationWithCoordinates> DataList(String placeName) throws CustomedException {
+		return db.getLocation(placeName);
 	}
 	@Override
 	public List<Location> TrendsAvailable() {
