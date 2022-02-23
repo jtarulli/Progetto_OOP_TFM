@@ -159,4 +159,110 @@ public class Connection {
 
 	}
 	
+	/**
+	 * Il metodo getTrendsCC fornisce una lista con le caratteristiche della location corrispondente al countryCode inserito in input
+	 * 
+	 * @param countryCode
+	 * @author Federico Mennecozzi
+	 * @author Matteo Forti
+	 */
+	public List<Location> getTrendsCC(String countryCode) throws CustomedException {
+		getTrendsAvailable();
+		Check check = new Check();
+		check.checkCC(countryCode);
+		Iterator<Location> it = trendsAvailable.iterator();
+		List<Location> list = new ArrayList<Location>();
+		while (it.hasNext()) {
+			Location tmp = it.next();
+			check.lowerCase(tmp);
+			if (tmp.getCountryCode() != null) {
+				if (tmp.getCountryCode().equals(countryCode) && tmp.getName() != tmp.getCountry()) {
+					if (tmp.getPlaceType().getPlaceTypeName().equals("Town"))
+					{
+						list.add(tmp);
+					}
+				}
+			}
+		}
+		if(list.isEmpty()) throw new CustomedException("COUNTRYCODE NON PRESENTE");
+		Collections.sort(list, new Comparator<Location>() {
+		    public int compare(Location l1, Location l2) {
+		        return l1.getName().compareToIgnoreCase(l2.getName()) ;
+		    }
+		});
+	return list;
+	}
+
+	/**
+	 * Il metodo getMetadata restituisce una lista di metadati, ovvero le informazioni di ogni tipo di dato visualizzato
+	 * 
+	 * @author Federico Mennecozzi
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Metadata> getMetadata() {
+		metadata = new JSONArray();
+		metadata.add(new Metadata("name", "name", "String"));
+		metadata.add(new Metadata("PlaceType", "placeType", "Object"));
+		metadata.add(new Metadata("placeTypeCode", "code", "Integer"));
+		metadata.add(new Metadata("placeTypeName", "name", "String"));
+		metadata.add(new Metadata("url", "url", "String"));
+		metadata.add(new Metadata("parentid", "parentid", "Integer"));
+		metadata.add(new Metadata("country", "country", "String"));
+		metadata.add(new Metadata("woeid", "woeid", "Integer"));
+		metadata.add(new Metadata("countryCode", "countryCode", "String"));
+
+		return metadata;
+	}
+	
+	/**
+	 * Il metodo getStats restituisce una classifica dei paesi con più location per trend
+	 * 
+	 * @author Federico Mennecozzi
+	 */
+	public List<Stats> getStats() {
+		getTrendsAvailable();
+		Iterator<Location> it = trendsAvailable.iterator();
+		List<Stats> StatsList = new ArrayList<Stats>();
+
+		int i = 0;
+
+		while (it.hasNext()) {
+			Location tmp = it.next();
+			if (tmp.getPlaceType().getPlaceTypeName().equals("Country")) {
+				Stats stats = new Stats(tmp, i);
+				StatsList.add(stats);
+			}
+		}
+
+		for (Stats var : StatsList) {
+			String appoggio = "";
+			i = 0;
+			for (Location trend : trendsAvailable) {
+				if (trend.getCountryCode() != null)
+					if (trend.getCountryCode().equals(var.getCountryCode()) && trend.getName() != trend.getCountry()) {
+
+						if (trend.getPlaceType().getPlaceTypeName().equals("Town")) {
+							appoggio += trend.getName() + ",";
+							i++;
+						}
+						var.setCount(i);
+					}
+
+			}
+
+			var.setTown(appoggio.split(","));
+		}
+		
+		Collections.sort(StatsList, new Comparator<Stats>() {
+
+			public int compare(Stats o1, Stats o2) {
+				return o1.getCount() > o2.getCount() ? -1 : (o1.getCount() < o2.getCount()) ? 1 : 0;
+
+			}
+		});
+
+		return StatsList;
+
+	}
+	
 }
