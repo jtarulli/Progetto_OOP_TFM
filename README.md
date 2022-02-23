@@ -10,7 +10,7 @@ Progetto Programmazione ad Oggetti 2021/2022
 ### Un'applicazione Java che sfrutta il framework SpringBoot e l'API di Twitter per offrire all'utente la possibilità di visualizzare statistiche ed effettuare calcoli usando le location per le quali Twitter dispone di trend.
 
 
-## **Indice** :bookmark_tabs:
+## **Indice** 🗂️
 * [Introduzione](#intro)
 * [Configurazione](#config)
 * [Rotte](#rotte)
@@ -21,7 +21,7 @@ Progetto Programmazione ad Oggetti 2021/2022
 * [Autori](#author)
 
 <a name="intro"></a>
-## Introduzione :mega:
+## Introduzione 📣
 L’applicazione è stata sviluppata per restituire statistiche e dati relativi alle location per le quali Twitter dispone di trend. Sono state usate le API di riferimento di Twitter Get locations with trending topics  (Get Trends/closest e Get Trends/available), e all’API dev/geo/placeName che restituisce informazioni geografiche tra le quali le coordinate della località placeName. 
 Il programma si compone di diversi packages:
   * Project: contiene il Main per avviare il programma
@@ -33,13 +33,13 @@ Il programma si compone di diversi packages:
 *	Exception: gestisce le eccezioni
   
   <a name="config"></a>
-## Configurazione :bulb:
+## Configurazione 💡
  * Clonare in locale la repository corrente da cmd con il seguente comando: git clone https: //github.com/jtarulli/Progetto_OOP_TFM,
  * Avviare il progetto da un IDE o da cmd come SpringBoot Application.
  * Una volta in esecuzione, utilizzare un client server (Postman) per usufruire dell'applicazione ed effettuare le GET requests all'indirizzo http://localhost:9900/
  
  <a name="rotte"></a>
-## Rotte 🗺️:
+## Rotte 🗺️
 
  N° |Tipo | Rotta | Descrizione
  ----- | ------------ | -------------------- | ----------------------
@@ -51,7 +51,7 @@ Il programma si compone di diversi packages:
  [6](#6) |` GET ` | `/ClosestLocations` | restituisce le locations del JSON trendsAvailable entro una certa distanza in km da un paese, entrambi dati in input
  
  <a name="calls"></a>
-## Chiamate API :telephone_receiver:
+## Chiamate API ☎️
 
 #### :memo: Cosa passare in input:
 
@@ -61,7 +61,7 @@ N° | Parametri | Tipo
 [5](#5) | `cc` | *String* 
 [6](#6) | `placeName, distance` | *String, double* 
 
-#### :page_with_curl: Cosa viene restituito:
+#### 📄 Cosa viene restituito:
 
 <a name=1></a>
 ### 1. TrendsAvailable
@@ -110,8 +110,8 @@ N° | Parametri | Tipo
 ```
 
 <a name=3></a>
-### 3. TrendsClosest
-Dati relativi al file location.txt "Bologna, Pavia, Milano"
+### 3. Locations
+Dati relativi al file location.txt "Bologna, Pavia, Milano", con placeName "Montappone" in input
 ```json
 {
     { "name":"Bologna",
@@ -122,7 +122,12 @@ Dati relativi al file location.txt "Bologna, Pavia, Milano"
       "parentid":23424853,
       "country":"Italy",
       "woeid":711080,
-      "countryCode":"IT" },
+      "countryCode":"IT" 
+      "Coordinates": {
+            "latitude": 11.34278,
+            "longitude": 44.49389
+        },
+      "Distance[Km]": 278.56803299318966 },
     { "name":"Milan",
       "placeType":
            { "code":7,
@@ -131,7 +136,12 @@ Dati relativi al file location.txt "Bologna, Pavia, Milano"
       "parentid":23424853,
       "country":"Italy",
       "woeid":718345,
-      "countryCode":"IT" },
+      "countryCode":"IT" 
+      "Coordinates": {
+            "latitude": 9.19034,
+            "longitude": 45.46416
+        },
+      "Distance[Km]": 539.1511469931897 },
    { "name":"Milan",
       "placeType":
            { "code":7,
@@ -140,7 +150,11 @@ Dati relativi al file location.txt "Bologna, Pavia, Milano"
       "parentid":23424853,
       "country":"Italy",
       "woeid":718345,
-      "countryCode":"IT" }
+      "countryCode":"IT" "Coordinates": {
+            "latitude": 9.19034,
+            "longitude": 45.46416
+        },
+      "Distance[Km]": 539.1511469931897 }
 }
 ```
 
@@ -160,19 +174,19 @@ Dati relativi al file location.txt "Bologna, Pavia, Milano"
 <img width="1433" alt="Screenshot ClosestLocations" src="https://user-images.githubusercontent.com/91531585/155243996-8bc3ddfe-64cf-4a9d-bb2a-d32694816aec.png">
  
  <a name="eccez"></a>
-## Eccezioni :x:
+## Eccezioni 🛑
 Sono state gestite sia eccezioni standard di Java che eccezioni personalizzate
  
  <a name="test"></a>
-## Test :question:
+## Test ☑️
 Sono stati effettuati test usando il framework JUnit sul corretto inserimento degli input da parte dell'utente. 
  
  <a name="doc"></a>
-## Documentazione :abc:
+## Documentazione 📚
 È stata usata la documentazione Javadoc.
  
  <a name="author"></a>
- ## Autori e commenti :busts_in_silhouette:
+ ## Autori e commenti 👥
 
 Progetto realizzato da
  
@@ -182,5 +196,5 @@ Progetto realizzato da
  
 * 33,3% Federico Mennecozzi: Model, Exception, Javadoc
  
-#### NOTA: ci sono stati problemi iniziali poi risolti riguardo push e pull, quindi il progetto è stato in larga parte realizzato lavorando sulla stessa macchina. 
+#### NOTA ⚠️ : ci sono stati problemi iniziali poi risolti riguardo push e pull, quindi il progetto è stato in larga parte realizzato lavorando sulla stessa macchina. 
  
