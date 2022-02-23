@@ -1,8 +1,9 @@
 <p align = "center">
+ 
+![IMG_5093](https://user-images.githubusercontent.com/91531585/155349655-8ddf099d-6632-4a45-b6e0-1f0b224b4d2b.JPG)
 
 
-
-<h1 align="center">Twitter Location&Trends
+<h1 align="center">
 
 Progetto Programmazione ad Oggetti 2021/2022
 
@@ -44,7 +45,7 @@ Il programma si compone di diversi packages:
  ----- | ------------ | -------------------- | ----------------------
  [1](#1) |` GET ` | `/TrendsAvailable` | restituisce il JSON trendsAvailable con tutte le location per le quali dispone di trend. Usa la chiamata API getTrendsAvailable
  [2](#2) |` GET ` | `/Metadata` | restituisce i metadati, ovvero le informazioni di ogni tipo di dato visualizzato
- [3](#3) |` GET ` | `/TrendsClosest` | restituisce la location più vicina a quella scritta nel file location.txt tra quelle presenti nel JSON trendsAvailable. Usa la chiamata API getTrendsClosest
+ [3](#3) |` GET ` | `/Locations` | restituisce le location più vicine a quelle scritte nel file location.txt tra quelle presenti nel JSON trendsAvailable, con la loro distanza dalla città richiesta in input. Usa la chiamata API getTrendsClosest
  [4](#4) |` GET ` | `/Stats` | restituisce la classifica dei paesi con più locations per trend 
  [5](#5) |` GET ` | `/CountryCode` | restituisce le locations del JSON trendsAvailable della nazione specificata dal countryCode
  [6](#6) |` GET ` | `/ClosestLocations` | restituisce le locations del JSON trendsAvailable entro una certa distanza in km da un paese, entrambi dati in input
@@ -56,6 +57,7 @@ Il programma si compone di diversi packages:
 
 N° | Parametri | Tipo 
 ----- | ------------ | -------------------- 
+[3](#3) | `placeName` | *String* 
 [5](#5) | `cc` | *String* 
 [6](#6) | `placeName, distance` | *String, double* 
 
