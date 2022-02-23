@@ -59,13 +59,13 @@ N° | Parametri | Tipo
 [5](#5) | `cc` | *String* 
 [6](#6) | `placeName, distance` | *String, double* 
 
-#### :page_with_curl: Cosa viene retituito:
+#### :page_with_curl: Cosa viene restituito:
 
 <a name=1></a>
 ### 1. TrendsAvailable
 
-Inserire screen
-
+ <img width="1440" alt="trends available" src="https://user-images.githubusercontent.com/91531585/155327909-ce696d60-8596-4273-b094-eac6c537d4d8.png">
+ 
 <a name=2></a>
 ### 2. Metadata
 
@@ -144,21 +144,18 @@ Dati relativi al file location.txt "Bologna, Pavia, Milano"
 
 <a name=4></a>
 ### 4. Stats
- ```json
-Inserire immagine output stats
-```
+<img width="1440" alt="Screen trends available" src="https://user-images.githubusercontent.com/91531585/155315707-c95484ed-ce18-4aab-9421-446e6fee2b56.png">
+
 
 <a name=5></a>
-### 5. CountryCode?cc=IT
- ```json
- Inserire immagine output stats
- ```
+### 5. CountryCode?cc=ES
+<img width="1440" alt="Screen CountryCode" src="https://user-images.githubusercontent.com/91531585/155317190-af3db323-49f3-4f8c-a7c7-e4d65e0d0596.png">
+
+
 
 <a name=6></a>
-### 6. ClosestLocations?name=Montappone?distance=300
- ```json
-Mettere screen
- ```
+### 6. ClosestLocations?name=Montappone?distance=400
+<img width="1433" alt="Screenshot ClosestLocations" src="https://user-images.githubusercontent.com/91531585/155243996-8bc3ddfe-64cf-4a9d-bb2a-d32694816aec.png">
  
  <a name="eccez"></a>
 ## Eccezioni :x:
