@@ -7,7 +7,7 @@
 
 Progetto Programmazione ad Oggetti 2021/2022
 
-### Un'applicazione Java che sfrutta il framework SpringBoot e l'API di Twitter per offrire all'utente la possibilità di visualizzare statistiche ed effettuare calcoli usando le location per le quali Twitter dispone di trend.
+### Un'applicazione Java che sfrutta il framework SpringBoot e l'[API](https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/overview) di Twitter per offrire all'utente la possibilità di visualizzare statistiche ed effettuare calcoli usando le location per le quali Twitter dispone di trend.
 
 
 ## **Indice** 🗂️
@@ -22,7 +22,7 @@ Progetto Programmazione ad Oggetti 2021/2022
 
 <a name="intro"></a>
 ## Introduzione 📣
-L’applicazione è stata sviluppata per restituire statistiche e dati relativi alle location per le quali Twitter dispone di trend. Sono state usate le API di riferimento di Twitter Get locations with trending topics  (Get Trends/closest e Get Trends/available), e all’API dev/geo/placeName che restituisce informazioni geografiche tra le quali le coordinate della località placeName. 
+L’applicazione è stata sviluppata per restituire statistiche e dati relativi alle location per le quali Twitter dispone di trend. Sono state usate le API di riferimento di Twitter Get locations with trending topics  ([Get Trends/closest](https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-closest) e [Get Trends/available](https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-available)), e all’API dev/geo/placeName che restituisce informazioni geografiche tra le quali le coordinate della località placeName. 
 Il programma si compone di diversi packages:
   * Project: contiene il Main per avviare il programma
 * Controller: contiene l’implementazione delle rotte
