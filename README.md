@@ -170,7 +170,9 @@ Dati relativi al file location.txt "Bologna, Pavia, Milano", con placeName "Mont
 
 
 <a name=6></a>
-### 6. ClosestLocations?name=Montappone?distance=400
+### 6. ClosestLocations?name=Montappone&distance=400
+⏳Potrebbe richiedere un paio di minuti
+ 
 <img width="1433" alt="Screenshot ClosestLocations" src="https://user-images.githubusercontent.com/91531585/155243996-8bc3ddfe-64cf-4a9d-bb2a-d32694816aec.png">
  
  <a name="eccez"></a>
@@ -194,7 +196,7 @@ Progetto realizzato da
  
 * 33,3% Matteo Forti: Need, Connection, Test
  
-* 33,3% Federico Mennecozzi: Model, Exception, Javadoc
+* 33,3% Federico Mennecozzi: Model, Connection, Exception, Javadoc
  
 #### NOTA ⚠️ : ci sono stati problemi iniziali poi risolti riguardo push e pull, quindi il progetto è stato in larga parte realizzato lavorando sulla stessa macchina. 
  
