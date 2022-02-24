@@ -61,7 +61,7 @@ N° | Parametri | Tipo
 [5](#5) | `cc` | *String* 
 [6](#6) | `placeName, distance` | *String, double* 
 
-#### 📄 Cosa viene restituito:
+#### 🖨️ Cosa viene restituito:
 
 <a name=1></a>
 ### 1. TrendsAvailable
